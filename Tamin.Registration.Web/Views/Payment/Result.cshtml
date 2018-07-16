@@ -1,0 +1,68 @@
+﻿@model Tamin.Registration.Web.Models.PaymentResult
+@using Tamin.Registration.Utility
+
+@section head
+{
+    <title>
+        نتیجه تراکنش
+    </title>}
+
+
+<div id="content">
+    <div class="container background-white">
+        <div class="row margin-vert-30">
+            @if (Model.Result)
+            {
+                <p class="alert alert-success">
+                    پرداخت شما با موفقیت انجام شد
+                    <br />
+                    برای دریافت کارت ورود به جلسه بر روی لینک زیر کلیک کنید
+                </p>
+                <p>
+                    <a href="/FollowUp" class="btn btn-success">دریافت کارت ورود به جلسه</a>
+                </p>
+                <div class="col-md-6 col-md-offset-3">
+                    <table class="table">
+                        <tr>
+                            <td>شماره فاکتور</td>
+                            <td>@Model.invoiceNumber</td>
+                        </tr>
+                        <tr>
+                            <td>زمان پرداخت</td>
+                            <td>@Model.PayOn</td>
+                        </tr>
+                        <tr>
+                            <td>شماره پیگیری</td>
+                            <td>@Model.traceNumber</td>
+                        </tr>
+                        <tr>
+                            <td>شماره ارجاع</td>
+                            <td>@Model.referenceNumber</td>
+                        </tr>
+                        <tr>
+                            <td>شماره تراکنش</td>
+                            <td>@Model.transactionReferenceID</td>
+                        </tr>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <p class="alert alert-danger">
+                    متاسفانه پرداخت شما انجام نشده است!
+
+                    <br />
+                    اگر وجهی از حساب شما کسر شده است، تا 72 ساعت آینده به صورت خودکار به حساب شما برگشت خواهد خورد.
+                    <br />
+                    با تشکر
+                </p>
+                <p class="alert alert-danger">
+                    @Model.Message
+                </p>
+                <p>
+                    <a href="/" class="btn btn-success">صفحه اصلی</a>
+                </p>
+            }
+        </div>
+    </div>
+</div>

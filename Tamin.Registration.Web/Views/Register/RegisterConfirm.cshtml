@@ -1,0 +1,157 @@
+﻿@model Tamin.Registration.Web.Models.RegisterFormViewModel
+
+@{
+    ViewBag.Title = "RegisterConfirm";
+}
+@section    head{
+    <title>تایید ثبت نام</title>
+}
+
+<div>
+    <h4>تایید اطلاعات ثبت نام</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Family)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Family)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FatherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FatherName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NatinalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NatinalCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShenasnameCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShenasnameCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adderess)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adderess)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telephone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AltTelephone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AltTelephone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhotoFilename)
+        </dt>
+
+        <dd>
+            <img src="/images/@(Model.PhotoFilename)" alt="@Model.Name" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Degree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Degree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Level)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Level)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @if (!Model.Gender)
+            {
+                <p>مرد</p>
+            }
+            else
+            {
+                <p>زن</p>
+            }
+        </dd>
+
+
+
+    </dl>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        @using (Html.BeginForm("pay", "payment", FormMethod.Post, null))
+        {
+            <input type="hidden" name="id" value="@Model.Id" />
+            <button class="btn btn-success">تایید و پرداخت</button>
+        }
+    </div>
+    @*<div class="col-md-2">
+        <a href="/Register/Index/@(Model.Id)" class="btn btn-warning">بازگشت و اصلاح</a>
+    </div>*@
+</div>
+

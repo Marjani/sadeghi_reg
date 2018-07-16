@@ -1,0 +1,258 @@
+﻿@model Tamin.Registration.Web.Models.RegisterFormViewModel
+@section head
+{
+    <link href="/Content/amib/js-persian-cal.css" rel="stylesheet" />
+    <style>
+        .ltr {
+            text-align: left;
+            direction: ltr;
+        }
+
+        .field-validation-error {
+            color: red;
+        }
+    </style>
+    <title>فرم ثبت نام</title>
+
+}
+
+
+
+@using (Html.BeginForm("Index", "Register", null, FormMethod.Post, new Dictionary<string, Object>() {
+                {"class","form-horizontal"},
+                {"role","form" },
+                {"enctype" , "multipart/form-data"},
+                }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <p>فرم ثبت نام</p>
+        <hr />
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    <input type="radio" name="Gender" value="False" checked="checked" />مرد
+                    <input type="radio" name="Gender" value="True" />زن
+
+                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Family, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Family, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Family, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FatherName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FatherName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NatinalCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NatinalCode, new { htmlAttributes = new { @class = "ltr form-control" } })
+                @Html.ValidationMessageFor(model => model.NatinalCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ShenasnameCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ShenasnameCode, new { htmlAttributes = new { @class = "ltr form-control" } })
+                @Html.ValidationMessageFor(model => model.ShenasnameCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Birthday, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { placeholder = "مثال : 1360/6/10", @class = "ltr form-control" } })
+                @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">
+                استان
+            </label>            <div class="col-md-10">
+                <select name="Province" class="form-control">
+                    <option>اصفهان</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="City" class="form-control">
+                    <option value="اصفهان">اصفهان</option>
+                    <option value="کاشان">کاشان</option>
+                    <option value="خمینی شهر">خمینی شهر</option>
+                    <option value="نجف آباد">نجف آباد</option>
+                    <option value="شاهین شهر">شاهین شهر</option>
+                    <option value="شهرضا">شهرضا</option>
+                    <option value="خوراسگان">خوراسگان</option>
+                    <option value="تیران">تیران</option>
+                    <option value="فولادشهر">فولادشهر</option>
+                    <option value="مبارکه">مبارکه</option>
+                    <option value="بهارستان">بهارستان</option>
+                    <option value="آران و بیدگل">آران و بیدگل</option>
+                    <option value="زرین شهر">زرین شهر</option>
+                    <option value="گلپایگان">گلپایگان</option>
+                    <option value="فریدون شهر">فریدون شهر</option>
+                    <option value="درچه">درچه</option>
+                    <option value="چادگان">چادگان</option>
+                    <option value="فلاورجان">فلاورجان</option>
+                    <option value="دولت آباد">دولت آباد</option>
+                    <option value="قهدریجان">قهدریجان</option>
+                    <option value="نایین">نایین</option>
+                    <option value="سمیرم">سمیرم</option>
+                    <option value="کلیشاد و سودرجان">کلیشاد و سودرجان</option>
+                    <option value="گل‌دشت">گل‌دشت</option>
+                    <option value="خورزوق">خورزوق</option>
+                    <option value="ابریشم">ابریشم</option>
+                    <option value="داران">داران</option>
+                    <option value="گز">گز</option>
+                    <option value="نطنز">نطنز</option>
+                    <option value="باغ بهادران">باغ بهادران</option>
+                    <option value="دامنه">دامنه</option>
+                    <option value="اصغرآباد">اصغرآباد</option>
+                    <option value="دهاقان">دهاقان</option>
+                 </select>
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Adderess, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Adderess, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Adderess, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "ltr form-control" } })
+                @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Telephone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Telephone, new { htmlAttributes = new { @class = "ltr form-control" } })
+                @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AltTelephone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AltTelephone, new { htmlAttributes = new { @class = "ltr form-control" } })
+                @Html.ValidationMessageFor(model => model.AltTelephone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Degree, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Degree, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Degree, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Level, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="Level" class="form-control">
+                    <option value="دیپلم">دیپلم</option>
+                    <option value="فوق دیپلم">فوق دیپلم</option>
+                    <option value="لیسانس">لیسانس</option>
+                    <option value="فوق لیسانس">فوق لیسانس</option>
+                </select>
+                @Html.ValidationMessageFor(model => model.Level, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PhotoFilename, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="PhotoFilename" id="PhotoFilename" />
+                @Html.ValidationMessageFor(model => model.PhotoFilename, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row margin-bottom-20">
+            <div class="editor-label">
+                <img class="captcha-image" src="@Url.Action("CaptchaImage", "Home", routeValues: new { rdnDate = DateTime.Now.Ticks })" />
+                (<button type="button" class="refresh-captcha">تازه سازی</button>)
+                <br />
+                @Html.TextBoxFor(model => model.CaptchaInputText, new { @class = "ltr form-control text-box single-line", autocomplete = "off", placeholder = "عددی که در عکس می بینید وارد کنید." })
+                <br />
+                فقط عدد وارد کنید.
+                <br />
+                @Html.ValidationMessageFor(model => model.CaptchaInputText)
+                <br />
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="ارسال" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="/Content/amib/js-persian-cal.min.js"></script>
+    <script>
+        var objCal1 = new AMIB.persianCalendar('Birthday');
+
+        jQuery(function ($) {
+            $("#NatinalCode").mask("9999999999");
+            $("#Mobile").mask("99999999999");
+            $("#Telephone").mask("99999999999");
+            $("#AltTelephone").mask("99999999999");
+
+            $("#Average").mask("99.99");
+
+
+        });
+        $(function () {
+            $('.refresh-captcha').click(function () {
+                //alert();
+                $.ajax({
+                    url: '@Url.Action("CaptchaImage","Home")',
+                    type: "GET",
+                    data: null
+                })
+                .done(function (functionResult) {
+                    $(".captcha-image").attr("src", "/Home/CaptchaImage?" + functionResult);
+                });
+            });
+        });
+    </script>
+}

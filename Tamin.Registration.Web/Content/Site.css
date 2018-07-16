@@ -1,0 +1,63 @@
+﻿@font-face {
+    font-family: 'IRANSans-web-UltraLight';
+    src: url("fonts/IRANSans-UltraLight.woff") format("woff");
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: 'IRANSans-web-Expanded';
+    src: url("fonts/IRANSans-Expanded.woff") format("woff");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'IRANSans-web-Bold';
+    src: url("fonts/IRANSans-Bold.woff") format("woff");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'IRANSans-web-Black';
+    src: url("fonts/IRANSans-Black.woff") format("woff");
+    font-weight: 900;
+}
+
+
+@font-face {
+    font-family: 'IRANSans-Medium';
+    src: url("fonts/IRANSans-Medium-web.eot");
+    src: url("fonts/IRANSans-Medium-web.eot?#iefix") format("embedded-opentype"),url("fonts/IRANSans-Medium-web.woff2") format("woff2"),url("fonts/IRANSans-Medium-web.woff") format("woff"),url("fonts/IRANSans-Medium-web.ttf") format("ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'IRANSans';
+    src: url("fonts/IRANSans-web.eot");
+    src: url("fonts/IRANSans-web.eot?#iefix") format("embedded-opentype"),url("fonts/IRANSans-web.woff2") format("woff2"),url("fonts/IRANSans-web.woff") format("woff"),url("fonts/IRANSans-web.ttf") format("ttf");
+    font-weight: normal;
+}
+body {
+    font-family:IRANSans !important;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}

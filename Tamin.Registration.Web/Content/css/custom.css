@@ -1,0 +1,238 @@
+@font-face {
+    font-family: 'IRANSans-web-UltraLight';
+    src: url("../fonts/IRANSans-UltraLight.woff") format("woff");
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: 'IRANSans-web-Expanded';
+    src: url("../fonts/IRANSans-Expanded.woff") format("woff");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'IRANSans-web-Bold';
+    src: url("../fonts/IRANSans-Bold.woff") format("woff");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'IRANSans-web-Black';
+    src: url("../fonts/IRANSans-Black.woff") format("woff");
+    font-weight: 900;
+}
+
+
+@font-face {
+    font-family: 'IRANSans-Medium';
+    src: url("../fonts/IRANSans-Medium-web.eot");
+    src: url("../fonts/IRANSans-Medium-web.eot?#iefix") format("embedded-opentype"),url("../fonts/IRANSans-Medium-web.woff2") format("woff2"),url("../fonts/IRANSans-Medium-web.woff") format("woff"),url("../fonts/IRANSans-Medium-web.ttf") format("ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'IRANSans';
+    src: url("../fonts/IRANSans-web.eot");
+    src: url("../fonts/IRANSans-web.eot?#iefix") format("embedded-opentype"),url("../fonts/IRANSans-web.woff2") format("woff2"),url("../fonts/IRANSans-web.woff") format("woff"),url("../fonts/IRANSans-web.ttf") format("ttf");
+    font-weight: normal;
+}
+
+body {
+    padding-top: 0;
+}
+
+#hornavmenu li a, button, b, h2, h3, .testimonial-author, label, .alert, dd, dt span, select, option, th, td, .panel-heading {
+    font-family: IRANSans-web-Bold;
+}
+
+    h2.padding-top-10 {
+        font-size: 2em;
+    }
+
+span {
+    font-family: IRANSans-web-Bold !important;
+}
+
+a, p, input, li {
+    font-family: IRANSans;
+}
+
+.account {
+    position: relative;
+    top: 70px;
+}
+
+#login-dp {
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+    #login-dp .help-block {
+        font-size: 12px;
+    }
+
+    #login-dp .bottom {
+        background-color: rgba(255,255,255,.8);
+        border-top: 1px solid #ddd;
+        clear: both;
+        padding: 14px;
+    }
+
+    #login-dp .social-buttons {
+        margin: 12px 0;
+    }
+
+        #login-dp .social-buttons a {
+            width: 49%;
+        }
+
+    #login-dp .form-group {
+        margin-bottom: 10px;
+    }
+
+.navbar-right .dropdown-menu {
+    left: auto;
+    right: 0;
+}
+
+.carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev {
+    margin-right: 0;
+    margin-left: -15px;
+}
+
+#hornav ul#hornavmenu > li > a, #hornav ul#hornavmenu > li > span {
+    font-size: 13px;
+}
+
+#hornav ul ul:before {
+    right: 21px !important;
+}
+
+#hornav ul ul li a, #hornav ul ul li span {
+    text-align: right;
+}
+
+.full-width {
+    width: 100%;
+}
+
+h2 {
+    /*background-color: #F5F5F5;
+    border-radius: 40px;
+    border: 1px solid #bbb;
+    box-shadow: 1px 1px 1px #E7E7E7;*/
+}
+
+.inline-list {
+    float: right;
+    margin-left: 20px;
+    margin-top: -31px;
+    width: 78px;
+}
+
+.link-ac {
+    background-image: url('../img/icon/ac.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    padding-right: 2px;
+}
+
+    .link-ac a {
+        color: green;
+    }
+
+    .link-ac a, .link-di a {
+        padding-right: 33px;
+    }
+
+.link-di {
+    background-image: url('../img/icon/di.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    padding-right: 2px;
+}
+
+.list-group li:hover {
+    background-image: url('../img/icon/ac.png');
+}
+
+.content-body img {
+    margin: 10px;
+}
+
+img.fr-fir {
+    float: right;
+}
+
+img.fr-fil {
+    float: left;
+}
+
+#pre-header a {
+    font-size: 8pt;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
+
+    .btn-circle.btn-lg {
+        width: 50px;
+        height: 50px;
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.33;
+        border-radius: 25px;
+    }
+
+    .btn-circle.btn-xl {
+        width: 70px;
+        height: 70px;
+        padding: 10px 16px;
+        font-size: 24px;
+        line-height: 1.33;
+        border-radius: 35px;
+    }
+
+.checkbox {
+    float: right;
+}
+
+label {
+    width: 15% !important;
+}
+
+.modal-dialog {
+    position: static;
+}
+
+.social li {
+    float: right;
+    width: 33%;
+}
+
+    .social li a img {
+    }
+
+.portfolio-group figure img {
+    height: 225px !important;
+}
+
+.content-body table tr td {
+    border: 1px solid #e3e3e3;
+    padding: 20px;
+}
+.padding-well {
+    width: 46%;
+    margin: 0 1%;
+    margin-bottom: 15px;
+        min-height: 260px;
+}

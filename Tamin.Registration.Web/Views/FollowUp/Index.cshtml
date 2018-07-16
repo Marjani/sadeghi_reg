@@ -1,0 +1,84 @@
+﻿@model Tamin.Registration.Web.Models.FollowUpViewModel
+@section head
+{
+    <title>
+        دریافت کارت
+    </title>
+}
+<h2>کارت ورود به جلسه</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>مشاهده کارت ورود به جلسه</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NatinalCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NatinalCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NatinalCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row margin-bottom-20">
+            <div class="editor-label">
+                <img class="captcha-image" src="@Url.Action("CaptchaImage", "Home", routeValues: new { rdnDate = DateTime.Now.Ticks })" />
+                (<button type="button" class="refresh-captcha">تازه سازی</button>)
+                <br />
+                @Html.TextBoxFor(model => model.CaptchaInputText, new { @class = "ltr form-control text-box single-line", autocomplete = "off", placeholder = "عددی که در عکس می بینید وارد کنید." })
+                <br />
+                @Html.ValidationMessageFor(model => model.CaptchaInputText)
+                <br />
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="ارسال" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+@if (ViewBag.Id != null && ViewBag.Id > 0)
+{
+    <p class="alert alert-warning">حساب شما پرداخت نشده است، هم اکنون پرداخت کنید.</p>
+    using (Html.BeginForm("pay", "payment", FormMethod.Post, null))
+    {
+        <input type="hidden" name="id" value="@ViewBag.Id" />
+        <button class="btn btn-success">پرداخت</button>
+    }
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(function () {
+            $('.refresh-captcha').click(function () {
+                //alert();
+                $.ajax({
+                    url: '@Url.Action("CaptchaImage","Home")',
+                    type: "GET",
+                    data: null
+                })
+                .done(function (functionResult) {
+                    $(".captcha-image").attr("src", "/Home/CaptchaImage?" + functionResult);
+                });
+            });
+        });
+    </script>
+}
