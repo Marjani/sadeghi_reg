@@ -75,7 +75,7 @@ namespace Tamin.Registration.Web.Controllers
                     {
                         Adderess = model.Adderess,
                         AltTelephone = model.AltTelephone,
-                        Average = 0,
+                        Average = model.Average,
                         Birthday = new DateTime(int.Parse(model.Birthday.Split('/')[0]), int.Parse(model.Birthday.Split('/')[1]), int.Parse(model.Birthday.Split('/')[2]), pc),
                         City = model.City,
                         Degree = model.Degree,
@@ -106,17 +106,18 @@ namespace Tamin.Registration.Web.Controllers
                 }
                 catch (DbEntityValidationException e)
                 {
+                        var content = "";
                     foreach (var eve in e.EntityValidationErrors)
                     {
-                        Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        content += (string.Format("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                            eve.Entry.Entity.GetType().Name, eve.Entry.State));
                         foreach (var ve in eve.ValidationErrors)
                         {
-                            Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
-                                ve.PropertyName, ve.ErrorMessage);
+                            content += (string.Format("- Property: \"{0}\", Error: \"{1}\"",
+                                ve.PropertyName, ve.ErrorMessage));
                         }
                     }
-                    throw;
+                    return Content(content);
                 }
                 catch (Exception ex)
 

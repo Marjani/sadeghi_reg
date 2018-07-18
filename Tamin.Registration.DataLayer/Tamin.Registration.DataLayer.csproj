@@ -56,6 +56,10 @@
     <Compile Include="Migrations\201807161747416_seatnumber.Designer.cs">
       <DependentUpon>201807161747416_seatnumber.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807171742070_avrage_12_20.cs" />
+    <Compile Include="Migrations\201807171742070_avrage_12_20.Designer.cs">
+      <DependentUpon>201807171742070_avrage_12_20.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationDbContext.cs" />
@@ -67,6 +71,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807161747416_seatnumber.resx">
       <DependentUpon>201807161747416_seatnumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807171742070_avrage_12_20.resx">
+      <DependentUpon>201807171742070_avrage_12_20.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

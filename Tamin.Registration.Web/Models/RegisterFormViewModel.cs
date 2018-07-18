@@ -80,7 +80,7 @@ namespace Tamin.Registration.Web.Models
         [Display(Name = "مدرک تحصیلی")]
         public string Level { get; set; }
 
-        [Range(0, 20, ErrorMessage = "حداکثر {1} حرف وارد کنید!")]
+        [Range(12, 20, ErrorMessage = "معدل بین 12 تا 20 قابل قبول است!")]
         [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
         [Display(Name = "معدل")]
         public double Average { get; set; }

@@ -8,48 +8,118 @@
 
 <html>
 <head>
+    @Styles.Render("~/Content/css")
     <link href="/Content/css/bootstrap-rtl.min.css" rel="stylesheet" />
     <link href="/Content/Site.css" rel="stylesheet" />
-    <style>
+	<style type="text/css">
+@@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
+
+.auto-style1 {
+	text-align: center;
+}
+.auto-style2 {
+	direction: rtl;
+}
+.auto-style3 {
+	font-size: large;
+}
+.auto-style4 {
+	direction: rtl;
+	text-align: center;
+	font-size: medium;
+}
+.auto-style5 {
+	border-style: solid;
+	border-width: 2px;
+}
+.auto-style6 {
+	font-size: medium;
+}
+.auto-style8 {
+	border: 2px solid #000000;
+	direction: rtl;
+}
+
+
         *{font-family:Tahoma !important;}
+        
+        .auto-style9 {
+	font-size: small;
+}
+
+
     </style>
 </head>
-<body>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th colspan="2">
-                    کارت ورود به جلسه
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <p>
-                        <strong>نام:</strong>@Model.Name
-                    </p>
-                    <p>
-                        <strong>نام خانوادگی:</strong>@Model.Family
-                    </p>
-                    <p>
-                        <strong>کد ملی:</strong>@Model.NatinalCode
-                    </p>
-                </td>
-                <td>
-                    <img src="/images/@(Model.PhotoFilename)" style="width:180px; height:240px;" alt="@Model.Name" />
-                </td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th colspan="2">
-                    شماره صندلی: @Model.SeatNumber
-                </th>
-            </tr>
-        </tfoot>
-    </table>
+<body onload="window.print();">
+
+<div class="container body-content" >
+<div class="row">
+<div class="col-sm-12">
+
+<table style="width: 100%" class="auto-style5">
+	<tr>
+		<td>
+		<img src="/images/sazman1.jpg" style="width:150px; height:133px;" alt="Tamin" /></td>
+		<td class="auto-style1"><strong><span class="auto-style6">کارت ورود به جلسه آزمون استخدامی شرکت کار و 
+		تامین</span><br class="auto-style3" />
+		<span class="auto-style9">مدیریت درمان تامین اجتماعی استان اصفهان 1397</span></strong></td>
+		<td><img src="/images/sazman2.jpg" style="width:150px; height:150px;" alt="sazman" /></td>
+		
+	</tr>
+	<tr>
+			<td class="auto-style2"><strong><br />
+		نام:@Model.Name <br />
+			<br />
+		نام خانوادگی:@Model.Family <br />
+			<br />
+		کد ملی:@Model.NatinalCode <br />
+			<br />
+		</strong>
+		</td>
+			<td class="auto-style4"><strong><span class="auto-style9">شماره صندلی:<br />
+			</span>&nbsp;@Model.SeatNumber </strong> </td>
+
+		<td>
+		<img src="/images/@(Model.PhotoFilename)" style="width:150px; height:200px;" alt="@Model.Name" /></td>
+	</tr>
+	<tr>
+		<td class="auto-style8" colspan="3"><br />
+		محل آزمون : اصفهان-خ جی-ایستگاه دانشسرا - دانشگاه علمی و کاربردی بهزیستی 
+		تامین اجتماعی اصفهان <br />
+		زمان آزمون: جمعه 05/ 05/ 1397 از ساعت 10:30 لغایت 00: 12 <br />
+		</td>
+	</tr>
+	<tr>
+		<td class="auto-style8" colspan="3"><br />
+		نکات مهم:<br />
+		متقاضیان نیم ساعت قبل از شروع آزمون در محل آزمون حضور داشته باشند.<br />
+		<br />
+		</td>
+	</tr>
+</table>
+
+
+
+
+
+<button onclick="myFunction()" class="no-print" >چاپ کارت</button>
+</div>
+</div>
+</div>
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+<script>
+function myFunction() {
+    window.print();
+}
+</script>
+
 </body>
 </html>

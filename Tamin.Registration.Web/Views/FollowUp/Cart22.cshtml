@@ -1,0 +1,55 @@
+﻿@model Tamin.Registration.Web.Models.CartViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="/Content/css/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="/Content/Site.css" rel="stylesheet" />
+    <style>
+        *{font-family:Tahoma !important;}
+    </style>
+</head>
+<body>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th colspan="2">
+                    کارت ورود به جلسه
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <p>
+                        <strong>نام:</strong>@Model.Name
+                    </p>
+                    <p>
+                        <strong>نام خانوادگی:</strong>@Model.Family
+                    </p>
+                    <p>
+                        <strong>کد ملی:</strong>@Model.NatinalCode
+                    </p>
+                </td>
+                <td>
+                    <img src="/images/@(Model.PhotoFilename)" style="width:180px; height:240px;" alt="@Model.Name" />
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="2">
+                    شماره صندلی: @Model.SeatNumber
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

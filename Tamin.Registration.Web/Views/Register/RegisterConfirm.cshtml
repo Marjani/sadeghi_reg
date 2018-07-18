@@ -124,18 +124,26 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Average)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Average)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Gender)
         </dt>
 
         <dd>
             @if (!Model.Gender)
-            {
-                <p>مرد</p>
-            }
-            else
-            {
-                <p>زن</p>
-            }
+        {
+            <p>مرد</p>
+    }
+    else
+    {
+        <p>زن</p>
+}
         </dd>
 
 

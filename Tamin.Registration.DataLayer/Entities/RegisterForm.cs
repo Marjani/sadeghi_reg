@@ -71,7 +71,7 @@ namespace Tamin.Registration.DataLayer.Entities
         [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
         public string Level { get; set; }
 
-        [Range(0, 20, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
+        [Range(12, 20, ErrorMessage = "معدل بین 12 تا 20 قابل قبول است!")]
         [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
         public double Average { get; set; }
 
