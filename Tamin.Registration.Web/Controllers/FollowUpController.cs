@@ -36,15 +36,20 @@ namespace Tamin.Registration.Web.Controllers
                 {
                     if (reg.IsPaied)
                     {
-                        return View("Cart", new CartViewModel() {
-                            Family = reg.Family,
-                            Name = reg.Name,
-                            NatinalCode = reg.NatinalCode,
-                            PhotoFilename = reg.PhotoFilename,
-                            RegisterOn = pc.GetYear(reg.RegisterOn) + "/" + pc.GetMonth(reg.RegisterOn) + "/" + pc.GetDayOfMonth(reg.RegisterOn),
-                            SeatNumber = reg.SeatNumber
-                        });
-                    }else
+                        //return View("Cart", new CartViewModel() {
+                        //    Family = reg.Family,
+                        //    Name = reg.Name,
+                        //    NatinalCode = reg.NatinalCode,
+                        //    PhotoFilename = reg.PhotoFilename,
+                        //    RegisterOn = pc.GetYear(reg.RegisterOn) + "/" + pc.GetMonth(reg.RegisterOn) + "/" + pc.GetDayOfMonth(reg.RegisterOn),
+                        //    SeatNumber = reg.SeatNumber
+                        //});
+                        ViewBag.Id = reg.Id;
+                        ViewBag.IsPaied = true;
+                        //ModelState.AddModelError("Id", "پرداخت شما با موفقیت انجام شده است، شما می توانید در بازه زمانی تعیین شده برای دریافت کارت ورود به جلسه اقدام کنید.");
+                    }
+                    else
+
                     {
                         model.CaptchaInputText = "";
                         ViewBag.Id = reg.Id;

@@ -2,10 +2,9 @@
 @section head
 {
     <title>
-        دریافت کارت
-    </title>
+وضعیت ثبت نام    </title>
 }
-<h2>کارت ورود به جلسه</h2>
+<h2>وضعیت ثبت نام</h2>
 
 
 @using (Html.BeginForm())
@@ -13,7 +12,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>مشاهده کارت ورود به جلسه</h4>
+        <h4>پیگیری وضعیت ثبت نام</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -53,17 +52,24 @@
         </div>
     </div>
 }
-
-@if (ViewBag.Id != null && ViewBag.Id > 0)
+@if (ViewBag.IsPaied != null)
 {
-    <p class="alert alert-warning">حساب شما پرداخت نشده است، هم اکنون پرداخت کنید.</p>
-    using (Html.BeginForm("pay", "payment", FormMethod.Post, null))
+
+
+    if ((bool)ViewBag.IsPaied)
     {
-        <input type="hidden" name="id" value="@ViewBag.Id" />
-        <button class="btn btn-success">پرداخت</button>
+        <p class="alert alert-success">پرداخت شما با موفقیت انجام شده است، شما می توانید در بازه زمانی تعیین شده برای دریافت کارت ورود به جلسه اقدام کنید.</p>
+    }
+    if ((bool)!ViewBag.IsPaied)
+    {
+        <p class="alert alert-warning">حساب شما پرداخت نشده است، هم اکنون پرداخت کنید.</p>
+        using (Html.BeginForm("pay", "payment", FormMethod.Post, null))
+        {
+            <input type="hidden" name="id" value="@ViewBag.Id" />
+            <button class="btn btn-success">پرداخت</button>
+        }
     }
 }
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script>
