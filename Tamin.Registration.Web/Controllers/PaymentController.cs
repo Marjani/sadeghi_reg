@@ -949,10 +949,10 @@ namespace Tamin.Registration.Web.Controllers
 
 
                 //دریافت تنظیمات از web.config
-                string merchantCode = "4450022";//appRead.GetValue("MerchantCode", typeof(string)).ToString();
-                string terminalCode = "1628035";// appRead.GetValue("TerminalCode", typeof(string)).ToString();
-                string redirectAddress = "http://azmoon.kartamin.ir/Payment/Result";//appRead.GetValue("RedirectAddress", typeof(string)).ToString();
-                string PrivateKey = "<RSAKeyValue><Modulus>vu1JWqa+weHOQbCCG17+F+oCLCj4VPciUyoFpweBY+oe2DpU4LcwHeZiWcFW3NsrIfi7vm2T9IcLwux3q8IUO5twJ6QM2SiYC/5quZT0Fmf+lxucdcKZJC/B21DA2JHZ4ldgUhjrtozyP6a3xCeZx7DGMkWn8MqQA1uE4cEbTkU=</Modulus><Exponent>AQAB</Exponent><P>9fs3BHFSAXKdiEODw5nh4t+0Rs3uAvVIqmRkV1l5EaUQwCFjj3/4uYdLJWF8u9YhdzmkKXnbNCMu2xwDACy87Q==</P><Q>xrQIf61qoG/y34iDbuvK67oLry5FooQP2mkbjPg/dF1qKqSzIfzyTa+Qnej3B56md6qKV+ZmWcF22eXVwtADuQ==</Q><DP>VMuE68MkwdsA8zhS89rYQ51aSA41Pk/P/O0eqf3t/mconxLjf1ReKZa6EOjKVvY6Ex+Lt8CKEC8Qt/ewER9bAQ==</DP><DQ>OBA10ahhTFEpyq4ev14iC+6bO1sn5Jm0S2CamGS2qqNswAlmTXGsAAVIHXXMtUarG1pv3Csyt6JhYUt6y5ObaQ==</DQ><InverseQ>Z85qWekGz3EVeS4eoceXe+H725a/oCu4Og8Sm20eO843r0FEU9326hz9f8KlRHBpYcbbS0s/JoY7m8w9cHHqLg==</InverseQ><D>kMxW8Ig7bcE58vnRgr6lSC+yHBmqVI3lG1toVAfOKp95axW6H37u4A5Ekrudi/wwFyCUClUCe9YbpmY+UCXtvwHgHWtx43KKmsNdcf5SrIWoQ78Gbn22CnmJvvhawtwYLhjgU6MbFQFEX/owgmKg6NL6/U5T62PAt1K8WAqZ02E=</D></RSAKeyValue>";
+                string merchantCode = "0000";//appRead.GetValue("MerchantCode", typeof(string)).ToString();
+                string terminalCode = "0000";// appRead.GetValue("TerminalCode", typeof(string)).ToString();
+                string redirectAddress = "http://karamozesh.ir/Payment/Result";//appRead.GetValue("RedirectAddress", typeof(string)).ToString();
+                string PrivateKey = "<RSAKeyValue><Modulus>0u1JWqa+weHOQbCCG17+F+oCLCj4VPciUyoFpweBY+oe2DpU4LcwHeZiWcFW3NsrIfi7vm2T9IcLwux3q8IUO5twJ6QM2SiYC/5quZT0Fmf+lxucdcKZJC/B21DA2JHZ4ldgUhjrtozyP6a3xCeZx7DGMkWn8MqQA1uE4cEbTkU=</Modulus><Exponent>AQAB</Exponent><P>9fs3BHFSAXKdiEODw5nh4t+0Rs3uAvVIqmRkV1l5EaUQwCFjj3/4uYdLJWF8u9YhdzmkKXnbNCMu2xwDACy87Q==</P><Q>xrQIf61qoG/y34iDbuvK67oLry5FooQP2mkbjPg/dF1qKqSzIfzyTa+Qnej3B56md6qKV+ZmWcF22eXVwtADuQ==</Q><DP>VMuE68MkwdsA8zhS89rYQ51aSA41Pk/P/O0eqf3t/mconxLjf1ReKZa6EOjKVvY6Ex+Lt8CKEC8Qt/ewER9bAQ==</DP><DQ>OBA10ahhTFEpyq4ev14iC+6bO1sn5Jm0S2CamGS2qqNswAlmTXGsAAVIHXXMtUarG1pv3Csyt6JhYUt6y5ObaQ==</DQ><InverseQ>Z85qWekGz3EVeS4eoceXe+H725a/oCu4Og8Sm20eO843r0FEU9326hz9f8KlRHBpYcbbS0s/JoY7m8w9cHHqLg==</InverseQ><D>kMxW8Ig7bcE58vnRgr6lSC+yHBmqVI3lG1toVAfOKp95axW6H37u4A5Ekrudi/wwFyCUClUCe9YbpmY+UCXtvwHgHWtx43KKmsNdcf5SrIWoQ78Gbn22CnmJvvhawtwYLhjgU6MbFQFEX/owgmKg6NL6/U5T62PAt1K8WAqZ02E=</D></RSAKeyValue>";
 
 
 

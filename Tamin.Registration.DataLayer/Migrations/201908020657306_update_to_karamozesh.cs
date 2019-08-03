@@ -3,7 +3,7 @@ namespace Tamin.Registration.DataLayer.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class seatnumber : DbMigration
+    public partial class update_to_karamozesh : DbMigration
     {
         public override void Up()
         {
@@ -12,6 +12,17 @@ namespace Tamin.Registration.DataLayer.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        Username = c.String(nullable: false, maxLength: 25),
+                        Password = c.String(nullable: false, maxLength: 20),
+                        Email = c.String(nullable: false, maxLength: 50),
+                        EName = c.String(nullable: false, maxLength: 50),
+                        EFamily = c.String(nullable: false, maxLength: 50),
+                        NatinalCardPhoto = c.String(nullable: false, maxLength: 50),
+                        Job = c.String(maxLength: 50),
+                        JobTelephone = c.Int(nullable: false),
+                        PostCode = c.String(nullable: false, maxLength: 50),
+                        Peygiri = c.String(),
+                        PeygiriPhotoFilename = c.String(),
                         Name = c.String(nullable: false, maxLength: 50),
                         Family = c.String(nullable: false, maxLength: 50),
                         FatherName = c.String(nullable: false, maxLength: 50),

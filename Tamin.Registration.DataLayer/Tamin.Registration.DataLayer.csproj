@@ -52,13 +52,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\RegisterForm.cs" />
-    <Compile Include="Migrations\201807161747416_seatnumber.cs" />
-    <Compile Include="Migrations\201807161747416_seatnumber.Designer.cs">
-      <DependentUpon>201807161747416_seatnumber.cs</DependentUpon>
+    <Compile Include="Migrations\201908020657306_update_to_karamozesh.cs" />
+    <Compile Include="Migrations\201908020657306_update_to_karamozesh.Designer.cs">
+      <DependentUpon>201908020657306_update_to_karamozesh.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807171742070_avrage_12_20.cs" />
-    <Compile Include="Migrations\201807171742070_avrage_12_20.Designer.cs">
-      <DependentUpon>201807171742070_avrage_12_20.cs</DependentUpon>
+    <Compile Include="Migrations\201908020714060_update_fileds.cs" />
+    <Compile Include="Migrations\201908020714060_update_fileds.Designer.cs">
+      <DependentUpon>201908020714060_update_fileds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908021011430_update_from_view.cs" />
+    <Compile Include="Migrations\201908021011430_update_from_view.Designer.cs">
+      <DependentUpon>201908021011430_update_from_view.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908021027434_update_from_nemidonam.cs" />
+    <Compile Include="Migrations\201908021027434_update_from_nemidonam.Designer.cs">
+      <DependentUpon>201908021027434_update_from_nemidonam.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,11 +77,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807161747416_seatnumber.resx">
-      <DependentUpon>201807161747416_seatnumber.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908020657306_update_to_karamozesh.resx">
+      <DependentUpon>201908020657306_update_to_karamozesh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807171742070_avrage_12_20.resx">
-      <DependentUpon>201807171742070_avrage_12_20.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908020714060_update_fileds.resx">
+      <DependentUpon>201908020714060_update_fileds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908021011430_update_from_view.resx">
+      <DependentUpon>201908021011430_update_from_view.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908021027434_update_from_nemidonam.resx">
+      <DependentUpon>201908021027434_update_from_nemidonam.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

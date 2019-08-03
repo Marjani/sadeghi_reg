@@ -21,17 +21,27 @@ namespace Tamin.Registration.Web.Controllers
         [HttpPost, ValidateCaptchaAttribute(ExpireTimeCaptchaCodeBySeconds = 1800), ValidateAntiForgeryToken]
         public ActionResult Index(Models.RegisterFormViewModel model)
         {
-            var exist = db.RegisterForms.Where(o => o.NatinalCode == model.NatinalCode).FirstOrDefault();
+            var exist = db.RegisterForms.Where(o => o.Username == model.Username).FirstOrDefault();
             if (exist != null)
             {
-                ModelState.AddModelError("NatinalCode", new Exception("این کد ملی قبلا ثبت شده است!"));
+                ModelState.AddModelError("Username", new Exception("این نام کاربری قبلا ثبت شده است!"));
                 model.CaptchaInputText = "";
                 return View(model);
 
             }
+
+            exist = db.RegisterForms.Where(o => o.Email == model.Email).FirstOrDefault();
+            if (exist != null)
+            {
+                ModelState.AddModelError("Email", new Exception("این  آدرس ایمیل قبلا ثبت شده است!"));
+                model.CaptchaInputText = "";
+                return View(model);
+
+            }
+
             if (Request.Files.Count > 0)
             {
-                var file = Request.Files[0];
+                var file = Request.Files["PhotoFilename"];
 
                 if (file != null && file.ContentLength > 0)
                 {
@@ -51,6 +61,51 @@ namespace Tamin.Registration.Web.Controllers
                     file.SaveAs(path);
                 }
                 else { ModelState.AddModelError("PhotoFilename", "یک تصویر مناسب انتخاب کنید."); }
+
+                file = null;
+                file = Request.Files["NatinalCardPhoto"];
+
+                if (file != null && file.ContentLength > 0)
+                {
+                    var validExt = new string[] { "jpg", "jpeg", "png" };
+                    var fileName = Path.GetFileName(file.FileName);
+                    var name = fileName.Split('.')[0];
+                    var ext = fileName.Split('.')[1];
+                    if (!validExt.Contains(ext.ToLower()))
+                    {
+                        model.CaptchaInputText = "";
+                        ModelState.AddModelError("NatinalCardPhoto", new Exception("یک تصویر مناسب انتخاب کنید."));
+                        return View(model);
+                    }
+                    fileName = Guid.NewGuid().ToString() + "." + ext;
+                    var path = Path.Combine(Server.MapPath("~/images/"), fileName);
+                    model.PhotoFilename = fileName;
+                    file.SaveAs(path);
+                }
+                else { ModelState.AddModelError("NatinalCardPhoto", "یک تصویر مناسب انتخاب کنید."); }
+
+
+                file = null;
+                file = Request.Files["LastDegrePhotoFilename"];
+
+                if (file != null && file.ContentLength > 0)
+                {
+                    var validExt = new string[] { "jpg", "jpeg", "png" };
+                    var fileName = Path.GetFileName(file.FileName);
+                    var name = fileName.Split('.')[0];
+                    var ext = fileName.Split('.')[1];
+                    if (!validExt.Contains(ext.ToLower()))
+                    {
+                        model.CaptchaInputText = "";
+                        ModelState.AddModelError("LastDegrePhotoFilename", new Exception("یک تصویر مناسب انتخاب کنید."));
+                        return View(model);
+                    }
+                    fileName = Guid.NewGuid().ToString() + "." + ext;
+                    var path = Path.Combine(Server.MapPath("~/images/"), fileName);
+                    model.LastDegrePhotoFilename = fileName;
+                    file.SaveAs(path);
+                }
+                else { }
             }
             else
             {
@@ -73,31 +128,38 @@ namespace Tamin.Registration.Web.Controllers
                     }
                     var entity = new DataLayer.Entities.RegisterForm()
                     {
-                        Adderess = model.Adderess,
-                        AltTelephone = model.AltTelephone,
-                        Average = model.Average,
-                        Birthday = new DateTime(int.Parse(model.Birthday.Split('/')[0]), int.Parse(model.Birthday.Split('/')[1]), int.Parse(model.Birthday.Split('/')[2]), pc),
-                        City = model.City,
-                        Degree = model.Degree,
-                        Family = model.Family,
-                        FatherName = model.FatherName,
-                        Gender = model.Gender,
-                        IsPaied = false,
-                        Level = model.Level,
-                        Mobile = model.Mobile,
+
+                        NatinalCode = DateTime.Now.ToString("yyMMddHHmmff"),
+                        Username = model.Username,
+                        Password = model.Password,
+                        Email = model.Email,
+                        EName = model.EName,
+                        EFamily = model.EFamily,
                         Name = model.Name,
-                        NatinalCode = model.NatinalCode,
-                        PaiedOn = null,
+                        Family = model.Family,
                         PhotoFilename = model.PhotoFilename,
-                        ReferenceNumber = null,
-                        RegisterOn = DateTime.Now,
-                        SeatNumber = null,
-                        ShenasnameCode = model.ShenasnameCode,
+                        NatinalCardPhoto = model.NatinalCardPhoto,
+                        LastDegrePhotoFilename = model.LastDegrePhotoFilename,
+                        University = model.University,
+                        Level = model.Level,
+                        Major = model.Major,
+                        Degree = model.Degree,
+                        Job = model.Job,
+                        JobTelephone = model.JobTelephone,
+                        AltTelephone = model.AltTelephone,
                         Telephone = model.Telephone,
+                        Mobile = model.Mobile,
+                        Country = model.Country,
+                        City = model.City,
+                        Adderess = model.Adderess,
+                        PostCode = model.PostCode,
+                        RegisterOn = DateTime.Now,
+                        PaiedOn = null,
                         Total = total,
                         TraceNumber = null,
                         TransactionDate = null,
-                        TransactionReferenceID = null
+                        TransactionReferenceID = null,
+                        Birthday = DateTime.Now
                     };
 
                     db.RegisterForms.Add(entity);
@@ -106,7 +168,7 @@ namespace Tamin.Registration.Web.Controllers
                 }
                 catch (DbEntityValidationException e)
                 {
-                        var content = "";
+                    var content = "";
                     foreach (var eve in e.EntityValidationErrors)
                     {
                         content += (string.Format("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
@@ -142,23 +204,29 @@ namespace Tamin.Registration.Web.Controllers
             var model = new Models.RegisterFormViewModel()
             {
                 Id = entity.Id,
-                Adderess = entity.Adderess,
-                NatinalCode = entity.NatinalCode,
-                AltTelephone = entity.AltTelephone,
-                Average = entity.Average,
-                Birthday = pc.GetYear(entity.Birthday) + "/" + pc.GetMonth(entity.Birthday) + "/" + pc.GetDayOfMonth(entity.Birthday),
-                CaptchaInputText = "",
-                City = entity.City,
-                Degree = entity.Degree,
-                Family = entity.Family,
-                FatherName = entity.FatherName,
-                Gender = entity.Gender,
-                Level = entity.Level,
-                Mobile = entity.Mobile,
+                Username = entity.Username,
+                Password = entity.Password,
+                Email = entity.Email,
+                EName = entity.EName,
+                EFamily = entity.EFamily,
                 Name = entity.Name,
+                Family = entity.Family,
                 PhotoFilename = entity.PhotoFilename,
-                ShenasnameCode = entity.ShenasnameCode,
-                Telephone = entity.Telephone
+                NatinalCardPhoto = entity.NatinalCardPhoto,
+                LastDegrePhotoFilename = entity.LastDegrePhotoFilename,
+                University = entity.University,
+                Level = entity.Level,
+                Major = entity.Major,
+                Degree = entity.Degree,
+                Job = entity.Job,
+                JobTelephone = entity.JobTelephone,
+                AltTelephone = entity.AltTelephone,
+                Telephone = entity.Telephone,
+                Mobile = entity.Mobile,
+                Country = entity.Country,
+                City = entity.City,
+                Adderess = entity.Adderess,
+                PostCode = entity.PostCode,
             };
 
             return View(model);

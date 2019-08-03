@@ -7,13 +7,13 @@ namespace Tamin.Registration.DataLayer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class seatnumber : IMigrationMetadata
+    public sealed partial class update_from_view : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(seatnumber));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(update_from_view));
         
         string IMigrationMetadata.Id
         {
-            get { return "201807161747416_seatnumber"; }
+            get { return "201908021011430_update_from_view"; }
         }
         
         string IMigrationMetadata.Source

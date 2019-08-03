@@ -14,7 +14,7 @@ namespace Tamin.Registration.Web.Models
         public string Mobile { get; set; }
         [MaxLength(10, ErrorMessage = "حداکثر {1} حرف وارد کنید!")]
         [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
-        [Display(Name = "کدملی")]
+        [Display(Name = "کد پیگیری")]
         public string NatinalCode { get; set; }
         [Required(ErrorMessage = "لطفا کد امنیتی را وارد نمائید")]
         [Display(Name = "کد امنیتی (به عدد)")]

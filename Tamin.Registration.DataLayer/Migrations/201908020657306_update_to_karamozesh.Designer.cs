@@ -7,13 +7,13 @@ namespace Tamin.Registration.DataLayer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class avrage_12_20 : IMigrationMetadata
+    public sealed partial class update_to_karamozesh : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(avrage_12_20));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(update_to_karamozesh));
         
         string IMigrationMetadata.Id
         {
-            get { return "201807171742070_avrage_12_20"; }
+            get { return "201908020657306_update_to_karamozesh"; }
         }
         
         string IMigrationMetadata.Source
