@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Tamin.Registration.Utility.Captcha;
+using Tamin.Registration.Web.Models;
 
 namespace Tamin.Registration.Web.Controllers
 {
@@ -13,9 +14,25 @@ namespace Tamin.Registration.Web.Controllers
     {
         DataLayer.RegistrationDbContext db = new DataLayer.RegistrationDbContext();
         [HttpGet]
-        public ActionResult Index(int? id)
+        public ActionResult Index(int? eventId)
         {
-            return View();
+            if (eventId.HasValue)
+            {
+
+                using (var db = new DataLayer.RegistrationDbContext())
+                {
+                    var evenx = db.Events.Find(eventId.Value);
+                    if (evenx == null)
+                    {
+                        return View("Error");
+                    }
+                    var m = new RegisterFormViewModel();
+                    m.EventId = eventId.Value;
+                    ViewBag.EventTitle = evenx.EName;
+                    return View(m);
+                }
+            }
+            return View("Error");
         }
 
         [HttpPost, ValidateCaptchaAttribute(ExpireTimeCaptchaCodeBySeconds = 1800), ValidateAntiForgeryToken]
@@ -79,7 +96,7 @@ namespace Tamin.Registration.Web.Controllers
                     }
                     fileName = Guid.NewGuid().ToString() + "." + ext;
                     var path = Path.Combine(Server.MapPath("~/images/"), fileName);
-                    model.PhotoFilename = fileName;
+                    model.NatinalCardPhoto = fileName;
                     file.SaveAs(path);
                 }
                 else { ModelState.AddModelError("NatinalCardPhoto", "یک تصویر مناسب انتخاب کنید."); }

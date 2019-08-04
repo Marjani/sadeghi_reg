@@ -205,15 +205,16 @@
 }
 <div class="row">
     <div class="col-sm-12">
+        <h2 class="auto-style2" style="font-family:'B Titr';color:red;margin:35px 0;">
+
+
+            مرکز آموزش مهارتی و حرفه ای مدیریت خطر حوادث و بلایا
+        </h2>
+    </div>
+    <div class="col-sm-6">
         <div class="alert alert-info">
-            <h2 class="auto-style2" style="font-family:'B Titr';color:red">
 
-
-                مرکز آموزش مهارتی و حرفه ای مدیریت خطر حوادث و بلایا
-            </h2>
             <h3 class="auto-style2" style="font-family:'B Titr';color:red;direction:ltr">
-
-
                 Bio-Centric Health Management in Iran:
                 Relaxation, Imagery, Music and Movement for Adult and
                 Children to reduce Stress
@@ -222,19 +223,37 @@
                 <p>
                     شرایط ثبت نام
                 </p>
-                <img src="/Content/0001.jpg" class="img-responsive"/>
+                <img src="/Content/0001.jpg" class="img-responsive" />
             </div>
+            <a href="/Register?eventId=1" class="btn btn-success">شروع ثبت نام</a>
+
         </div>
     </div>
-    <p style="font-size:20px;" class="auto-style1">
-        ثبت نام به منزله موافقت با کلیه شرایط فوق می باشید.
-    </p>
+    <div class="col-sm-6">
+        <div class="alert alert-info">
+            <h3 class="auto-style2" style="font-family:'B Titr';color:red;direction:ltr">
+                Bio-Centric Health Management in Iran:
+                School of Empathy to Improve Verbal and Nonverbal
+                Communication
+
+            </h3>
+            <div>
+                <p>
+                    شرایط ثبت نام
+                </p>
+                <img src="/Content/0002.jpg" class="img-responsive" />
+            </div>
+            <a href="/Register?eventId=2" class="btn btn-success">شروع ثبت نام</a>
+
+        </div>
+    </div>
+
     <div class="col-sm-12">
         @*@using (Html.BeginForm("Index", "Register", FormMethod.Post))
             {
                 <input type="submit" value="قبول شرایط و شروع ثبت مام"class="btn btn-success" />
             }*@
-        <a href="/Register" class="btn btn-success">شروع ثبت نام</a>
+        @*<a href="/Register" class="btn btn-success">شروع ثبت نام</a>*@
         <a href="/FollowUp" class="btn btn-warning">پیگیری ثبت نام (پرداخت مجدد)</a>
 
     </div>

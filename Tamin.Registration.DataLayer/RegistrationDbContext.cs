@@ -15,7 +15,7 @@ namespace Tamin.Registration.DataLayer
 
         }
         public DbSet<RegisterForm> RegisterForms { get; set; }
+        public DbSet<Event> Events  { get; set; }
 
-        
     }
 }

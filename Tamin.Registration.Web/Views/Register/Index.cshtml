@@ -16,13 +16,14 @@
 
 }
 
-
-
+    <br />
+<h3 style="text-align:center;">@ViewBag.EventTitle</h3>
+<br />
 @using (Html.BeginForm("Index", "Register", null, FormMethod.Post, new Dictionary<string, Object>() {
-    {"class","form-horizontal"},
-    {"role","form" },
-    {"enctype" , "multipart/form-data"},
-    }))
+{"class","form-horizontal"},
+{"role","form" },
+{"enctype" , "multipart/form-data"},
+}))
 {
     @Html.AntiForgeryToken()
 
@@ -39,7 +40,7 @@
 
             نام کاربری و رمز عبور نباید یکسان باشند. برای نام کاربری فقط می توانید از حروف و اعداد لاتین و زیر خط (_) استفاده کنید.
         </p>
-
+        @Html.HiddenFor(model => model.EventId)
         <div class="form-group">
             @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

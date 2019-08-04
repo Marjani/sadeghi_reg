@@ -130,5 +130,8 @@ namespace Tamin.Registration.DataLayer.Entities
         [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
 
         public string Country { get; set; }
+
+        public int EventId { get; set; }
+        public virtual Event Event { get; set; }
     }
 }

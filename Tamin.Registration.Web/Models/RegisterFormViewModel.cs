@@ -160,6 +160,6 @@ namespace Tamin.Registration.Web.Models
         [Required(ErrorMessage = "لطفا کد امنیتی را وارد نمائید")]
         [Display(Name = "کد امنیتی (به عدد)")]
         public string CaptchaInputText { get; set; }
-
+        public int EventId { get; internal set; }
     }
 }

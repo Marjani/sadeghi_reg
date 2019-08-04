@@ -934,14 +934,27 @@ namespace Tamin.Registration.Web.Controllers
         public ActionResult ZarinResult(string Authority, string Status)
 
         {
-            if (Status.ToLower() == "ok")
+            Utility.ZarinServiceReference.PaymentGatewayImplementationServicePortTypeClient request = new Utility.ZarinServiceReference.PaymentGatewayImplementationServicePortTypeClient();
+            using (var db = new Tamin.Registration.DataLayer.RegistrationDbContext())
             {
-
-                Utility.ZarinServiceReference.PaymentGatewayImplementationServicePortTypeClient request = new Utility.ZarinServiceReference.PaymentGatewayImplementationServicePortTypeClient();
-
-                using (var db = new Tamin.Registration.DataLayer.RegistrationDbContext())
+                var order = db.RegisterForms.Where(o => o.TraceNumber == Authority).FirstOrDefault();
+                if (order == null)
                 {
-                    var order = db.RegisterForms.Where(o => o.TraceNumber == Authority).FirstOrDefault();
+                    var viewResult = new PaymentResult()
+                    {
+                        invoiceNumber = string.Empty,
+                        Message = "درخواست اشتباه ارسال شده است، با پشتیبانی تماس بگیرید.",
+                        PayOn = DateTime.Now.ToString(),
+                        referenceNumber = string.Empty,
+                        Result = false,
+                        traceNumber = string.Empty,
+                        transactionReferenceID = string.Empty
+                    };
+
+                    return View("Result", viewResult);
+                }
+                if (Status.ToLower() == "ok")
+                {
                     long refId;
                     var result = request.PaymentVerification(merchantId, Authority, order.Total, out refId);
 
@@ -950,13 +963,36 @@ namespace Tamin.Registration.Web.Controllers
                     order.PaiedOn = DateTime.Now;
                     db.SaveChanges();
 
+                    var viewResult = new PaymentResult()
+                    {
+                        invoiceNumber = order.Id.ToString(),
+                        Message = "پرداخت شما با موفقیت انجام شده است.",
+                        PayOn = order.TransactionDate,
+                        referenceNumber = order.ReferenceNumber,
+                        Result = true,
+                        traceNumber = order.TraceNumber,
+                        transactionReferenceID = order.TransactionReferenceID
+                    };
+
+                    return View("Result", viewResult);
                 }
-                return Content("پرداخت با موفقیت انجام شد.");
+                else
+                {
+                    var viewResult = new PaymentResult()
+                    {
+                        invoiceNumber = string.Empty,
+                        Message = "پرداخت انجام نشد! می توانید با کد پیگیری برای پرداخت مجدد اقدام کنید.",
+                        PayOn = DateTime.Now.ToString(),
+                        referenceNumber = string.Empty,
+                        Result = false,
+                        traceNumber = string.Empty,
+                        transactionReferenceID = string.Empty
+                    };
+
+                    return View("Result", viewResult);
+                }
             }
-            else
-            {
-                return Content("پرداخت با موفقیت انجام نشده است!");
-            }
+
         }
 
         [HttpPost]
@@ -1026,7 +1062,7 @@ namespace Tamin.Registration.Web.Controllers
                 string autohority = string.Empty;
 
                 var result = request.PaymentRequest(
-                     merchantId, 728907, "هزینه ثبت نام", order.Email, order.Mobile, "http://karamozesh.ir/payment/zarinresult", out autohority
+                     merchantId, order.Total, "هزینه ثبت نام", order.Email, order.Mobile, "http://karamozesh.ir/payment/zarinresult", out autohority
                      );
                 if (result > 0)
                 {
