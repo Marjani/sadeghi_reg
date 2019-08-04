@@ -50,7 +50,9 @@
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\Tamin.Registration.Web\bin\System.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,6 +69,11 @@
     <Compile Include="Captcha\NoBrowserCache.cs" />
     <Compile Include="Captcha\SecurityExtensions.cs" />
     <Compile Include="Captcha\ValidateCaptchaAttribute.cs" />
+    <Compile Include="Connected Services\ZarinServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Helpers.cs" />
     <Compile Include="HtmlRemove.cs" />
     <Compile Include="Parser.cs" />
@@ -96,6 +103,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\ZarinServiceReference\PaymentGatewayImplementationService.wsdl" />
+    <None Include="Connected Services\ZarinServiceReference\Tamin.Registration.Utility.ZarinServiceReference.GetUnverifiedTransactionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ZarinServiceReference\Tamin.Registration.Utility.ZarinServiceReference.PaymentRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ZarinServiceReference\Tamin.Registration.Utility.ZarinServiceReference.PaymentRequestWithExtraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ZarinServiceReference\Tamin.Registration.Utility.ZarinServiceReference.PaymentVerificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ZarinServiceReference\Tamin.Registration.Utility.ZarinServiceReference.PaymentVerificationWithExtraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ZarinServiceReference\Tamin.Registration.Utility.ZarinServiceReference.RefreshAuthorityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Service References\Sep.Payment\referencepayment.wsdl" />
     <None Include="Service References\Sep.ReferencePayment\referencepayment.wsdl" />
@@ -106,8 +132,16 @@
     <None Include="Service References\SmsioService\Tamin.Registration.Utility.SmsioService.GetInboxResponse.datasource" />
     <None Include="Service References\SmsioService\Tamin.Registration.Utility.SmsioService.SendSmsResponse.datasource" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ZarinServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\ZarinServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\ZarinServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Service References\Sep.Payment\configuration.svcinfo" />
     <Content Include="Service References\Sep.Payment\configuration91.svcinfo" />
     <Content Include="Service References\Sep.Payment\Reference.svcmap">
@@ -129,6 +163,9 @@
       <LastGenOutput>Reference1.cs</LastGenOutput>
     </Content>
     <Content Include="Service References\SmsioService\Send.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ZarinServiceReference\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

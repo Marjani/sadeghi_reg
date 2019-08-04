@@ -20,7 +20,7 @@ namespace Tamin.Registration.Web.Controllers
 {
     public class PaymentController : Controller
     {
-
+        string merchantId = "5b9c52c6-b5a3-11e9-931d-000c295eb8fc";
         #region Saman Result
 
         string refrenceNumber = string.Empty;
@@ -824,18 +824,18 @@ namespace Tamin.Registration.Web.Controllers
 
                                             db.SaveChanges();
                                         }
-                                        
+
                                         catch (DbEntityValidationException e)
                                         {
                                             var content = "";
                                             foreach (var eve in e.EntityValidationErrors)
                                             {
-                                                content +=string.Format( "Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-                                                    eve.Entry.Entity.GetType().Name, eve.Entry.State+"<br />");
+                                                content += string.Format("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                                                    eve.Entry.Entity.GetType().Name, eve.Entry.State + "<br />");
                                                 foreach (var ve in eve.ValidationErrors)
                                                 {
-                                                    content+=string.Format( "- Property: \"{0}\", Error: \"{1}\"",
-                                                        ve.PropertyName, ve.ErrorMessage+"<br />");
+                                                    content += string.Format("- Property: \"{0}\", Error: \"{1}\"",
+                                                        ve.PropertyName, ve.ErrorMessage + "<br />");
                                                 }
                                             }
                                             return Content(content);
@@ -931,6 +931,33 @@ namespace Tamin.Registration.Web.Controllers
             }
         }
 
+        public ActionResult ZarinResult(string Authority, string Status)
+
+        {
+            if (Status.ToLower() == "ok")
+            {
+
+                Utility.ZarinServiceReference.PaymentGatewayImplementationServicePortTypeClient request = new Utility.ZarinServiceReference.PaymentGatewayImplementationServicePortTypeClient();
+
+                using (var db = new Tamin.Registration.DataLayer.RegistrationDbContext())
+                {
+                    var order = db.RegisterForms.Where(o => o.TraceNumber == Authority).FirstOrDefault();
+                    long refId;
+                    var result = request.PaymentVerification(merchantId, Authority, order.Total, out refId);
+
+                    order.TransactionReferenceID = refId.ToString();
+                    order.IsPaied = true;
+                    order.PaiedOn = DateTime.Now;
+                    db.SaveChanges();
+
+                }
+                return Content("پرداخت با موفقیت انجام شد.");
+            }
+            else
+            {
+                return Content("پرداخت با موفقیت انجام نشده است!");
+            }
+        }
 
         [HttpPost]
         public ActionResult Pay(int id)
@@ -940,58 +967,79 @@ namespace Tamin.Registration.Web.Controllers
             {
                 var order = db.RegisterForms.Find(id);
 
-                amount = order.Total.ToString();
-                invoiceDate = order.RegisterOn.ToString("yyyy/MM/dd HH:mm:ss");
-                invoiceNumber = order.Id.ToString();
+                //  amount = order.Total.ToString();
+                //  invoiceDate = order.RegisterOn.ToString("yyyy/MM/dd HH:mm:ss");
+                //  invoiceNumber = order.Id.ToString();
 
                 #region Pasargad
-                AppSettingsReader appRead = new AppSettingsReader();
+                //  AppSettingsReader appRead = new AppSettingsReader();
 
 
-                //دریافت تنظیمات از web.config
-                string merchantCode = "0000";//appRead.GetValue("MerchantCode", typeof(string)).ToString();
-                string terminalCode = "0000";// appRead.GetValue("TerminalCode", typeof(string)).ToString();
-                string redirectAddress = "http://karamozesh.ir/Payment/Result";//appRead.GetValue("RedirectAddress", typeof(string)).ToString();
-                string PrivateKey = "<RSAKeyValue><Modulus>0u1JWqa+weHOQbCCG17+F+oCLCj4VPciUyoFpweBY+oe2DpU4LcwHeZiWcFW3NsrIfi7vm2T9IcLwux3q8IUO5twJ6QM2SiYC/5quZT0Fmf+lxucdcKZJC/B21DA2JHZ4ldgUhjrtozyP6a3xCeZx7DGMkWn8MqQA1uE4cEbTkU=</Modulus><Exponent>AQAB</Exponent><P>9fs3BHFSAXKdiEODw5nh4t+0Rs3uAvVIqmRkV1l5EaUQwCFjj3/4uYdLJWF8u9YhdzmkKXnbNCMu2xwDACy87Q==</P><Q>xrQIf61qoG/y34iDbuvK67oLry5FooQP2mkbjPg/dF1qKqSzIfzyTa+Qnej3B56md6qKV+ZmWcF22eXVwtADuQ==</Q><DP>VMuE68MkwdsA8zhS89rYQ51aSA41Pk/P/O0eqf3t/mconxLjf1ReKZa6EOjKVvY6Ex+Lt8CKEC8Qt/ewER9bAQ==</DP><DQ>OBA10ahhTFEpyq4ev14iC+6bO1sn5Jm0S2CamGS2qqNswAlmTXGsAAVIHXXMtUarG1pv3Csyt6JhYUt6y5ObaQ==</DQ><InverseQ>Z85qWekGz3EVeS4eoceXe+H725a/oCu4Og8Sm20eO843r0FEU9326hz9f8KlRHBpYcbbS0s/JoY7m8w9cHHqLg==</InverseQ><D>kMxW8Ig7bcE58vnRgr6lSC+yHBmqVI3lG1toVAfOKp95axW6H37u4A5Ekrudi/wwFyCUClUCe9YbpmY+UCXtvwHgHWtx43KKmsNdcf5SrIWoQ78Gbn22CnmJvvhawtwYLhjgU6MbFQFEX/owgmKg6NL6/U5T62PAt1K8WAqZ02E=</D></RSAKeyValue>";
-
-
-
-
-                //تاریخ فاکتور و زمان اجرای عملیات از سیستم گرفته می شود
-                //شما می توانید تاریخ فاکتور را به صورت دستی وارد نمایید 
-                string timeStamp = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-
-
-                string ActionIs = "1003";
+                //  //دریافت تنظیمات از web.config
+                //  string merchantCode = "0000";//appRead.GetValue("MerchantCode", typeof(string)).ToString();
+                //  string terminalCode = "0000";// appRead.GetValue("TerminalCode", typeof(string)).ToString();
+                //  string redirectAddress = "http://karamozesh.ir/Payment/Result";//appRead.GetValue("RedirectAddress", typeof(string)).ToString();
+                //  string PrivateKey = "<RSAKeyValue><Modulus>0u1JWqa+weHOQbCCG17+F+oCLCj4VPciUyoFpweBY+oe2DpU4LcwHeZiWcFW3NsrIfi7vm2T9IcLwux3q8IUO5twJ6QM2SiYC/5quZT0Fmf+lxucdcKZJC/B21DA2JHZ4ldgUhjrtozyP6a3xCeZx7DGMkWn8MqQA1uE4cEbTkU=</Modulus><Exponent>AQAB</Exponent><P>9fs3BHFSAXKdiEODw5nh4t+0Rs3uAvVIqmRkV1l5EaUQwCFjj3/4uYdLJWF8u9YhdzmkKXnbNCMu2xwDACy87Q==</P><Q>xrQIf61qoG/y34iDbuvK67oLry5FooQP2mkbjPg/dF1qKqSzIfzyTa+Qnej3B56md6qKV+ZmWcF22eXVwtADuQ==</Q><DP>VMuE68MkwdsA8zhS89rYQ51aSA41Pk/P/O0eqf3t/mconxLjf1ReKZa6EOjKVvY6Ex+Lt8CKEC8Qt/ewER9bAQ==</DP><DQ>OBA10ahhTFEpyq4ev14iC+6bO1sn5Jm0S2CamGS2qqNswAlmTXGsAAVIHXXMtUarG1pv3Csyt6JhYUt6y5ObaQ==</DQ><InverseQ>Z85qWekGz3EVeS4eoceXe+H725a/oCu4Og8Sm20eO843r0FEU9326hz9f8KlRHBpYcbbS0s/JoY7m8w9cHHqLg==</InverseQ><D>kMxW8Ig7bcE58vnRgr6lSC+yHBmqVI3lG1toVAfOKp95axW6H37u4A5Ekrudi/wwFyCUClUCe9YbpmY+UCXtvwHgHWtx43KKmsNdcf5SrIWoQ78Gbn22CnmJvvhawtwYLhjgU6MbFQFEX/owgmKg6NL6/U5T62PAt1K8WAqZ02E=</D></RSAKeyValue>";
 
 
 
 
-                RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
-                rsa.FromXmlString(PrivateKey);
+                //  //تاریخ فاکتور و زمان اجرای عملیات از سیستم گرفته می شود
+                //  //شما می توانید تاریخ فاکتور را به صورت دستی وارد نمایید 
+                //  string timeStamp = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 
-                string data = "#" + merchantCode + "#" + terminalCode + "#" + invoiceNumber +
-              "#" + invoiceDate + "#" + amount + "#" + redirectAddress + "#" + ActionIs + "#" + timeStamp + "#";
 
-                byte[] signedData = rsa.SignData(System.Text.Encoding.UTF8.GetBytes(data), new
-                SHA1CryptoServiceProvider());
+                //  string ActionIs = "1003";
 
-                string signedString = Convert.ToBase64String(signedData);
-                DataPost dp = new DataPost();
-                dp.Url = "https://pep.shaparak.ir/gateway.aspx";
-                dp.FormName = "form1";
-                dp.Method = "post";
-                dp.AddKey("merchantCode", merchantCode);
-                dp.AddKey("terminalCode", terminalCode);
-                dp.AddKey("amount", amount);
-                dp.AddKey("redirectAddress", redirectAddress);
-                dp.AddKey("invoiceNumber", invoiceNumber);
-                dp.AddKey("invoiceDate", invoiceDate);
-                dp.AddKey("action", ActionIs);
-                dp.AddKey("sign", signedString);
-                dp.AddKey("timeStamp", timeStamp);
-                dp.Post();
-                return View();
+
+
+
+                //  RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
+                //  rsa.FromXmlString(PrivateKey);
+
+                //  string data = "#" + merchantCode + "#" + terminalCode + "#" + invoiceNumber +
+                //"#" + invoiceDate + "#" + amount + "#" + redirectAddress + "#" + ActionIs + "#" + timeStamp + "#";
+
+                //  byte[] signedData = rsa.SignData(System.Text.Encoding.UTF8.GetBytes(data), new
+                //  SHA1CryptoServiceProvider());
+
+                //  string signedString = Convert.ToBase64String(signedData);
+                //  DataPost dp = new DataPost();
+                //  dp.Url = "https://pep.shaparak.ir/gateway.aspx";
+                //  dp.FormName = "form1";
+                //  dp.Method = "post";
+                //  dp.AddKey("merchantCode", merchantCode);
+                //  dp.AddKey("terminalCode", terminalCode);
+                //  dp.AddKey("amount", amount);
+                //  dp.AddKey("redirectAddress", redirectAddress);
+                //  dp.AddKey("invoiceNumber", invoiceNumber);
+                //  dp.AddKey("invoiceDate", invoiceDate);
+                //  dp.AddKey("action", ActionIs);
+                //  dp.AddKey("sign", signedString);
+                //  dp.AddKey("timeStamp", timeStamp);
+                //  dp.Post();
+                //  return View();
+                #endregion
+
+                #region Zarinpal
+                Utility.ZarinServiceReference.PaymentGatewayImplementationServicePortTypeClient request = new Utility.ZarinServiceReference.PaymentGatewayImplementationServicePortTypeClient();
+                string autohority = string.Empty;
+
+                var result = request.PaymentRequest(
+                     merchantId, 728907, "هزینه ثبت نام", order.Email, order.Mobile, "http://karamozesh.ir/payment/zarinresult", out autohority
+                     );
+                if (result > 0)
+                {
+                    order.TraceNumber = autohority;
+                    db.SaveChanges();
+                    var url = "https://www.zarinpal.com/pg/StartPay/" + long.Parse(autohority);
+                    return Redirect(url);
+                }
+                else
+                {
+                    return Content("Error: " + result);
+                }
+
                 #endregion
 
 
