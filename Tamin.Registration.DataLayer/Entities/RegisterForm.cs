@@ -97,7 +97,8 @@ namespace Tamin.Registration.DataLayer.Entities
         [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
         public string Degree { get; set; }
 
-        [MaxLength(10, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
+        [MaxLength(20, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
+        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
 
         public string Level { get; set; }
 

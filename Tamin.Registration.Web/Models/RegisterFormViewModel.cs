@@ -72,7 +72,7 @@ namespace Tamin.Registration.Web.Models
 
         [MaxLength(10, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
         [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
-        [Display(Name = "صندوق پستی")]
+        [Display(Name = "کد پستی")]
         public string PostCode { get; set; }
 
         [Display(Name = "شماره پیگیری فیش واریزی")]
@@ -94,18 +94,18 @@ namespace Tamin.Registration.Web.Models
         public string Family { get; set; }
 
         [MaxLength(50, ErrorMessage = "حداکثر {1} حرف وارد کنید!")]
-                [Display(Name = "نام پدر")]
+        [Display(Name = "نام پدر")]
         public string FatherName { get; set; }
 
         [MaxLength(10, ErrorMessage = "حداکثر {1} حرف وارد کنید!")]
-                [Display(Name = "کدملی")]
+        [Display(Name = "کدملی")]
         public string NatinalCode { get; set; }
 
         [MaxLength(10, ErrorMessage = "حداکثر {1} حرف وارد کنید!")]
-                [Display(Name = "شماره شناسنامه")]
+        [Display(Name = "شماره شناسنامه")]
         public string ShenasnameCode { get; set; }
 
-                [Display(Name = "تاریخ تولد")]
+        [Display(Name = "تاریخ تولد")]
         public string Birthday { get; set; }
 
         [MaxLength(20, ErrorMessage = "حداکثر {1} حرف وارد کنید!")]
@@ -125,12 +125,14 @@ namespace Tamin.Registration.Web.Models
         public string Mobile { get; set; }
 
         [MaxLength(15, ErrorMessage = "حداکثر {1} حرف وارد کنید!")]
-        
+
         [Display(Name = "تلفن")]
         public string Telephone { get; set; }
 
         [MaxLength(15, ErrorMessage = "حداکثر {1} حرف وارد کنید!")]
-                [Display(Name = "تلفن منزل")]
+        [Display(Name = "تلفن منزل")]
+        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
+
         public string AltTelephone { get; set; }
 
 
@@ -144,12 +146,12 @@ namespace Tamin.Registration.Web.Models
         [Display(Name = "رشته تحصیلی")]
         public string Degree { get; set; }
 
-        [MaxLength(10, ErrorMessage = "حداکثر {1} حرف وارد کنید!")]
+        [MaxLength(20, ErrorMessage = "حداکثر {1} حرف وارد کنید!")]
         [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
         [Display(Name = "مدرک تحصیلی")]
         public string Level { get; set; }
 
-        
+
         [Display(Name = "معدل")]
         public double Average { get; set; }
 
@@ -160,6 +162,6 @@ namespace Tamin.Registration.Web.Models
         [Required(ErrorMessage = "لطفا کد امنیتی را وارد نمائید")]
         [Display(Name = "کد امنیتی (به عدد)")]
         public string CaptchaInputText { get; set; }
-        public int EventId { get; internal set; }
+        public int EventId { get; set; }
     }
 }

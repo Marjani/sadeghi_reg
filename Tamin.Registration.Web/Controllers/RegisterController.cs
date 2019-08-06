@@ -146,7 +146,7 @@ namespace Tamin.Registration.Web.Controllers
                     var entity = new DataLayer.Entities.RegisterForm()
                     {
 
-                        NatinalCode = DateTime.Now.ToString("yyMMddHHmmff"),
+                        NatinalCode = model.NatinalCode,
                         Username = model.Username,
                         Password = model.Password,
                         Email = model.Email,
@@ -176,7 +176,8 @@ namespace Tamin.Registration.Web.Controllers
                         TraceNumber = null,
                         TransactionDate = null,
                         TransactionReferenceID = null,
-                        Birthday = DateTime.Now
+                        Birthday = DateTime.Now,
+                        EventId = model.EventId
                     };
 
                     db.RegisterForms.Add(entity);
@@ -244,6 +245,8 @@ namespace Tamin.Registration.Web.Controllers
                 City = entity.City,
                 Adderess = entity.Adderess,
                 PostCode = entity.PostCode,
+                EventId = entity.EventId,
+                NatinalCode = entity.NatinalCode
             };
 
             return View(model);

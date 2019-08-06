@@ -11,8 +11,9 @@
     <h4>تایید اطلاعات ثبت نام</h4>
     <hr />
     <div class="form-horizontal">
-        <h3>شماره پیگیری: @Model.NatinalCode
-            <small>(یاداشت کنید)</small>
+        <h3>
+            کد ملی: @Model.NatinalCode
+            <small>(پیگیری ثبت نام)</small>
         </h3>
         <hr />
         @Html.ValidationSummary(false, "", new { @class = "text-danger" })
@@ -85,11 +86,20 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.NatinalCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.NatinalCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NatinalCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
             @Html.LabelFor(model => model.PhotoFilename, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @if (!string.IsNullOrEmpty(Model.PhotoFilename))
                 {
-                <img src="/images/@Model.PhotoFilename"  class="img img-responsive"/>
+                    <img src="/images/@Model.PhotoFilename" class="img img-responsive" />
                 }
                 @Html.ValidationMessageFor(model => model.PhotoFilename, "", new { @class = "text-danger" })
             </div>
