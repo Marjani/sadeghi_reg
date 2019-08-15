@@ -38,111 +38,27 @@ namespace Tamin.Registration.Web.Controllers
         [HttpPost, ValidateCaptchaAttribute(ExpireTimeCaptchaCodeBySeconds = 1800), ValidateAntiForgeryToken]
         public ActionResult Index(Models.RegisterFormViewModel model)
         {
-            var exist = db.RegisterForms.Where(o => o.Username == model.Username).FirstOrDefault();
-            if (exist != null)
-            {
-                ModelState.AddModelError("Username", new Exception("این نام کاربری قبلا ثبت شده است!"));
-                model.CaptchaInputText = "";
-                return View(model);
-
-            }
-
-            exist = db.RegisterForms.Where(o => o.Email == model.Email).FirstOrDefault();
-            if (exist != null)
-            {
-                ModelState.AddModelError("Email", new Exception("این  آدرس ایمیل قبلا ثبت شده است!"));
-                model.CaptchaInputText = "";
-                return View(model);
-
-            }
-
-            if (Request.Files.Count > 0)
-            {
-                var file = Request.Files["PhotoFilename"];
-
-                if (file != null && file.ContentLength > 0)
-                {
-                    var validExt = new string[] { "jpg", "jpeg", "png" };
-                    var fileName = Path.GetFileName(file.FileName);
-                    var name = fileName.Split('.')[0];
-                    var ext = fileName.Split('.')[1];
-                    if (!validExt.Contains(ext.ToLower()))
-                    {
-                        model.CaptchaInputText = "";
-                        ModelState.AddModelError("PhotoFilename", new Exception("یک تصویر مناسب انتخاب کنید."));
-                        return View(model);
-                    }
-                    fileName = Guid.NewGuid().ToString() + "." + ext;
-                    var path = Path.Combine(Server.MapPath("~/images/"), fileName);
-                    model.PhotoFilename = fileName;
-                    file.SaveAs(path);
-                }
-                else { ModelState.AddModelError("PhotoFilename", "یک تصویر مناسب انتخاب کنید."); }
-
-                file = null;
-                file = Request.Files["NatinalCardPhoto"];
-
-                if (file != null && file.ContentLength > 0)
-                {
-                    var validExt = new string[] { "jpg", "jpeg", "png" };
-                    var fileName = Path.GetFileName(file.FileName);
-                    var name = fileName.Split('.')[0];
-                    var ext = fileName.Split('.')[1];
-                    if (!validExt.Contains(ext.ToLower()))
-                    {
-                        model.CaptchaInputText = "";
-                        ModelState.AddModelError("NatinalCardPhoto", new Exception("یک تصویر مناسب انتخاب کنید."));
-                        return View(model);
-                    }
-                    fileName = Guid.NewGuid().ToString() + "." + ext;
-                    var path = Path.Combine(Server.MapPath("~/images/"), fileName);
-                    model.NatinalCardPhoto = fileName;
-                    file.SaveAs(path);
-                }
-                else { ModelState.AddModelError("NatinalCardPhoto", "یک تصویر مناسب انتخاب کنید."); }
-
-
-                file = null;
-                file = Request.Files["LastDegrePhotoFilename"];
-
-                if (file != null && file.ContentLength > 0)
-                {
-                    var validExt = new string[] { "jpg", "jpeg", "png" };
-                    var fileName = Path.GetFileName(file.FileName);
-                    var name = fileName.Split('.')[0];
-                    var ext = fileName.Split('.')[1];
-                    if (!validExt.Contains(ext.ToLower()))
-                    {
-                        model.CaptchaInputText = "";
-                        ModelState.AddModelError("LastDegrePhotoFilename", new Exception("یک تصویر مناسب انتخاب کنید."));
-                        return View(model);
-                    }
-                    fileName = Guid.NewGuid().ToString() + "." + ext;
-                    var path = Path.Combine(Server.MapPath("~/images/"), fileName);
-                    model.LastDegrePhotoFilename = fileName;
-                    file.SaveAs(path);
-                }
-                else { }
-            }
-            else
-            {
-                ModelState.AddModelError("PhotoFilename", new Exception("یک تصویر مناسب انتخاب کنید."));
-            }
+            
 
             if (ModelState.IsValid)
             {
                 System.Globalization.PersianCalendar pc = new System.Globalization.PersianCalendar();
                 try
                 {
-                    var total = 350000;
-                    try
-                    {
-                        total = int.Parse(System.Configuration.ConfigurationManager.AppSettings["total"]);
-                    }
-                    catch (Exception)
-                    {
+                    var total = 296000;
+                    //if (model.EventId == 1 || model.EventId == 2)
+                    //{
+                    //    total = 300000;
+                    //}
+                    //else if (model.EventId == 3)
+                    //{
+                    //    total = 500000;
+                    //}
+                    //else
+                    //{
+                    //    throw new Exception();
+                    //}
 
-                    }
                     var entity = new DataLayer.Entities.RegisterForm()
                     {
 

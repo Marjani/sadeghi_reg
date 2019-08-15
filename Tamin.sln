@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamin.Registration.Web", "Tamin.Registration.Web\Tamin.Registration.Web.csproj", "{2D572A02-1D4B-490F-BCD3-7577A414E1C7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamin.Registration.DataLayer", "Tamin.Registration.DataLayer\Tamin.Registration.DataLayer.csproj", "{FDAA5AB9-C912-4BF1-B242-111E9478082B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamin.Registration.Utility", "Tamin.Registration.Utility\Tamin.Registration.Utility.csproj", "{CBF65C4D-F91C-4F68-9B96-6BCD99C9ECC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Registration.Manager", "Registration.Manager\Registration.Manager.csproj", "{C1CF03E6-0D53-4C51-B5CD-C36A568EF78B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,8 +29,15 @@ Global
 		{CBF65C4D-F91C-4F68-9B96-6BCD99C9ECC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBF65C4D-F91C-4F68-9B96-6BCD99C9ECC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBF65C4D-F91C-4F68-9B96-6BCD99C9ECC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1CF03E6-0D53-4C51-B5CD-C36A568EF78B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1CF03E6-0D53-4C51-B5CD-C36A568EF78B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1CF03E6-0D53-4C51-B5CD-C36A568EF78B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1CF03E6-0D53-4C51-B5CD-C36A568EF78B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E166D61-0E6A-4D68-8D99-BBA132B2B841}
 	EndGlobalSection
 EndGlobal

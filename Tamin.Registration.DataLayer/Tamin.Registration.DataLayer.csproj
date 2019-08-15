@@ -77,6 +77,26 @@
     <Compile Include="Migrations\201908061648263_update-field.Designer.cs">
       <DependentUpon>201908061648263_update-field.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908080546309_eddti-len.cs" />
+    <Compile Include="Migrations\201908080546309_eddti-len.Designer.cs">
+      <DependentUpon>201908080546309_eddti-len.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908080548089_eddti-len12.cs" />
+    <Compile Include="Migrations\201908080548089_eddti-len12.Designer.cs">
+      <DependentUpon>201908080548089_eddti-len12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908091430022_unil-natinal.cs" />
+    <Compile Include="Migrations\201908091430022_unil-natinal.Designer.cs">
+      <DependentUpon>201908091430022_unil-natinal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908102050286_update_field.cs" />
+    <Compile Include="Migrations\201908102050286_update_field.Designer.cs">
+      <DependentUpon>201908102050286_update_field.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908102123340_remove-major.cs" />
+    <Compile Include="Migrations\201908102123340_remove-major.Designer.cs">
+      <DependentUpon>201908102123340_remove-major.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationDbContext.cs" />
@@ -103,6 +123,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908061648263_update-field.resx">
       <DependentUpon>201908061648263_update-field.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908080546309_eddti-len.resx">
+      <DependentUpon>201908080546309_eddti-len.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908080548089_eddti-len12.resx">
+      <DependentUpon>201908080548089_eddti-len12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908091430022_unil-natinal.resx">
+      <DependentUpon>201908091430022_unil-natinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908102050286_update_field.resx">
+      <DependentUpon>201908102050286_update_field.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908102123340_remove-major.resx">
+      <DependentUpon>201908102123340_remove-major.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

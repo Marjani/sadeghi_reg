@@ -1,0 +1,352 @@
+﻿@model Tamin.Registration.DataLayer.Entities.RegisterForm
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>RegisterForm</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Event.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Event.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EFamily)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EFamily)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NatinalCardPhoto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NatinalCardPhoto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Job)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Job)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobTelephone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobTelephone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Peygiri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Peygiri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PeygiriPhotoFilename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PeygiriPhotoFilename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Family)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Family)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FatherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FatherName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NatinalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NatinalCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShenasnameCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShenasnameCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adderess)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adderess)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telephone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AltTelephone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AltTelephone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhotoFilename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhotoFilename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Degree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Degree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Level)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Level)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Average)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Average)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeatNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeatNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegisterOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegisterOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPaied)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsPaied)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaiedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaiedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TraceNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TraceNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReferenceNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReferenceNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransactionReferenceID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransactionReferenceID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransactionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransactionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastDegrePhotoFilename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastDegrePhotoFilename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.University)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.University)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Major)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Major)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

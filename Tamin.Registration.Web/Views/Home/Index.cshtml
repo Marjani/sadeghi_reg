@@ -1,207 +1,12 @@
-﻿
-<head>
-    <style type="text/css">
-        .auto-style1 {
-            direction: rtl;
-        }
+﻿@model Tamin.Registration.Web.Models.RegisterFormViewModel
 
-        .auto-style2 {
-            text-align: center;
-        }
-
-        td {
-            border-style: none;
-            border-color: inherit;
-            border-width: medium;
-            padding: 0px;
-            color: black;
-            font-size: 11.0pt;
-            font-weight: 400;
-            font-style: normal;
-            text-decoration: none;
-            font-family: Arial, sans-serif;
-            text-align: general;
-            vertical-align: bottom;
-            white-space: nowrap;
-        }
-
-        .auto-style4 {
-            color: black;
-            font-size: 17.0pt;
-            font-weight: 400;
-            font-style: normal;
-            text-decoration: none;
-            font-family: "B Titr";
-            text-align: center;
-            vertical-align: middle;
-            white-space: nowrap;
-            border-left-style: none;
-            border-left-color: inherit;
-            border-left-width: medium;
-            border-right: 1.5pt solid windowtext;
-            border-top: 1.5pt solid windowtext;
-            border-bottom: 1.5pt solid windowtext;
-            padding: 0px;
-        }
-
-        .auto-style5 {
-            color: black;
-            font-size: 14.0pt;
-            font-weight: 400;
-            font-style: normal;
-            text-decoration: none;
-            font-family: "B Titr";
-            text-align: center;
-            vertical-align: middle;
-            white-space: normal;
-            border-left: .5pt solid windowtext;
-            border-right: 1.5pt solid windowtext;
-            border-top: 1.5pt solid windowtext;
-            border-bottom: .5pt solid windowtext;
-            padding: 0px;
-        }
-
-        .auto-style6 {
-            color: black;
-            font-size: 14.0pt;
-            font-weight: 400;
-            font-style: normal;
-            text-decoration: none;
-            font-family: "B Titr";
-            text-align: center;
-            vertical-align: middle;
-            white-space: normal;
-            border-left: .5pt solid windowtext;
-            border-right: .5pt solid windowtext;
-            border-top: 1.5pt solid windowtext;
-            border-bottom: .5pt solid windowtext;
-            padding: 0px;
-        }
-
-        .auto-style7 {
-            color: black;
-            font-size: 14.0pt;
-            font-weight: 400;
-            font-style: normal;
-            text-decoration: none;
-            font-family: "B Titr";
-            text-align: center;
-            vertical-align: middle;
-            white-space: normal;
-            border-left: 1.5pt solid windowtext;
-            border-right: .5pt solid windowtext;
-            border-top: 1.5pt solid windowtext;
-            border-bottom: .5pt solid windowtext;
-            padding: 0px;
-        }
-
-        .auto-style8 {
-            color: black;
-            font-size: 18.0pt;
-            font-weight: 700;
-            font-style: normal;
-            text-decoration: none;
-            font-family: "B Roya";
-            text-align: center;
-            vertical-align: middle;
-            white-space: normal;
-            border-left: .5pt solid windowtext;
-            border-right: 1.5pt solid windowtext;
-            border-top: .5pt solid windowtext;
-            border-bottom: .5pt solid windowtext;
-            padding: 0px;
-        }
-
-        .auto-style9 {
-            color: black;
-            font-size: 18.0pt;
-            font-weight: 700;
-            font-style: normal;
-            text-decoration: none;
-            font-family: "B Roya";
-            text-align: center;
-            vertical-align: middle;
-            white-space: nowrap;
-            border: .5pt solid windowtext;
-            padding: 0px;
-        }
-
-        .auto-style10 {
-            color: black;
-            font-size: 18.0pt;
-            font-weight: 700;
-            font-style: normal;
-            text-decoration: none;
-            font-family: "B Roya";
-            text-align: center;
-            vertical-align: middle;
-            white-space: nowrap;
-            border-left: 1.5pt solid windowtext;
-            border-right: .5pt solid windowtext;
-            border-top: .5pt solid windowtext;
-            border-bottom: .5pt solid windowtext;
-            padding: 0px;
-        }
-
-        .auto-style11 {
-            color: black;
-            font-size: 18.0pt;
-            font-weight: 700;
-            font-style: normal;
-            text-decoration: none;
-            font-family: "B Roya";
-            text-align: center;
-            vertical-align: middle;
-            white-space: normal;
-            border-left: .5pt solid windowtext;
-            border-right: 1.5pt solid windowtext;
-            border-top: .5pt solid windowtext;
-            border-bottom: 1.5pt solid windowtext;
-            padding: 0px;
-        }
-
-        .auto-style12 {
-            color: black;
-            font-size: 18.0pt;
-            font-weight: 700;
-            font-style: normal;
-            text-decoration: none;
-            font-family: "B Roya";
-            text-align: center;
-            vertical-align: middle;
-            white-space: nowrap;
-            border-left: .5pt solid windowtext;
-            border-right: .5pt solid windowtext;
-            border-top: .5pt solid windowtext;
-            border-bottom: 1.5pt solid windowtext;
-            padding: 0px;
-        }
-
-        .auto-style13 {
-            color: black;
-            font-size: 18.0pt;
-            font-weight: 700;
-            font-style: normal;
-            text-decoration: none;
-            font-family: "B Roya";
-            text-align: center;
-            vertical-align: middle;
-            white-space: nowrap;
-            border-left: 1.5pt solid windowtext;
-            border-right: .5pt solid windowtext;
-            border-top: .5pt solid windowtext;
-            border-bottom: 1.5pt solid windowtext;
-            padding: 0px;
-        }
-    </style>
-</head>
 
 @{
     ViewBag.Title = "Home Page";
 }
 @section    head
 {
-<title>سامانه ثبت نام کارگاه مرکز آموزش مهارتی و حرفه ای مدیریت خطر حوادث و بلایا</title>
+    <title>سامانه ثبت نام کارگاه مرکز آموزش مهارتی و حرفه ای مدیریت خطر حوادث و بلایا</title>
 }
 <div class="row">
     <div class="col-sm-12">
@@ -211,43 +16,282 @@
             مرکز آموزش مهارتی و حرفه ای مدیریت خطر حوادث و بلایا
         </h2>
     </div>
-    <div class="col-sm-6">
-        <div class="alert alert-info">
-
-            <h3 class="auto-style2" style="font-family:'B Titr';color:red;direction:ltr">
-                Bio-Centric Health Management in Iran:
-                Relaxation, Imagery, Music and Movement for Adult and
-                Children to reduce Stress
-            </h3>
-            <div>
-                <p>
-                    شرایط ثبت نام
-                </p>
-                <img src="/Content/0001.jpg" class="img-responsive" />
-            </div>
-            <a href="/Register?eventId=1" class="btn btn-success">شروع ثبت نام</a>
-
-        </div>
+    <div class="col-sm-12 alert alert-warning">
+        <h4>قوانین شرکت در کارگاه</h4>
+        <ul>
+            <li>
+                1-	با توجه به محدود بودن ظرفیت کارگاه‌ها اولویت با افرادی است که زودتر ثبت نام نمایند.
+            </li>
+            <li>
+                2-	افرادی که در هر دو کارگاه ثبت نام نمایند از تخفیف 26 درصدی برخوردار خواهند شد.
+            </li>
+            <li>
+                3-	لطفا از صحت اطلاعات وارد شده در فرم ثبت نام (اعم از آدرس پستی، املای نام و نام خانوادگی)  اطمینان حاصل کرده و سپس اقدام به تأیید نمایید
+            </li>
+            <li>
+                4-	در صورت برگزار نشدن کارگاه  به علت عدم امکان حضور استاد مدعو، کلیه مبالغ پرداختی شرکت کنندگان پس از یک هفته کاری استرداد داده خواهد شد.
+            </li>
+            <li>
+                5-	 با توجه به لزوم تأیید گواهی‌ها از سوی مؤسسه آلمانی، گواهی‌ها حداکثر تا ده روز کاری به آدرس شرکت کنندگان ارسال خواهد شد.
+            </li>
+            <li>
+                6-	مسئولیت کلیه اطلاعات با شرکت کننده خواهد بود و برگزار کنندگان هیچ گونه مسئولیتی نخواهند داشت.
+            </li>
+            <li>
+                7-	در ابتدای کارگاه‌ها حضور و غیاب انجام می‌گیرد و  تنها در صورت حضور گواهی صادر خواهد شد.
+            </li>
+            <li>
+                8-	در صورت عدم حضور در کارگاه هزینه پرداخت شده قابل برگشت نمی‌باشد.
+            </li>
+        </ul>
     </div>
-    <div class="col-sm-6">
-        <div class="alert alert-info">
-            <h3 class="auto-style2" style="font-family:'B Titr';color:red;direction:ltr">
-                Bio-Centric Health Management in Iran:
-                School of Empathy to Improve Verbal and Nonverbal
-                Communication
+    <div class="col-sm-12">
+        @using (Html.BeginForm("Index", "Register", null, FormMethod.Post, new Dictionary<string, Object>() {
+{"class","form-horizontal"},
+{"role","form" },
+{"enctype" , "multipart/form-data"},
+}))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+            <div class="row">
+                <div class="col-sm-12 alert alert-success">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th colspan="2">
+                                    انتخاب کارگاه
+                                </th>
+                                <th>
+                                زمان برگزاری</th>
 
-            </h3>
-            <div>
-                <p>
-                    شرایط ثبت نام
-                </p>
-                <img src="/Content/0002.jpg" class="img-responsive" />
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td style="width:15px;">
+                                @*<input type="radio" name="EventId" value="1" disabled="disabled" />*@
+                            </td>
+                            <td>
+                                <p>
+                                    Bio-Centric Health Management in Iran:
+                                    Relaxation, Imagery, Music and Movement for Adult and
+                                    Children to reduce Stress
+                                </p>
+                            </td>
+                            <td>
+                                30 مرداد 1398
+                                <br />
+                                8 الی 12
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @*<input type="radio" name="EventId" value="2" disabled="disabled" />*@
+                            </td>
+                            <td>
+                                <p>
+                                    Bio-Centric Health Management in Iran:
+                                    School of Empathy to Improve Verbal and Nonverbal
+                                    Communication
+                                </p>
+                            </td>
+                            <td>
+                                30 مرداد 1398
+                                <br />
+                                13 الی 16
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio" name="EventId" value="3" checked="checked" />
+                            </td>
+                            <td>
+                                هر دو کارگاه (با 26 درصد تخفیف)
+                            </td>
+                            <td>
+                                296 هزار تومان
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-            <a href="/Register?eventId=2" class="btn btn-success">شروع ثبت نام</a>
 
-        </div>
+            <div class="row">
+                <div class="col-sm-12 alert alert-info">
+
+
+                    <div class="form-horizontal">
+
+
+
+
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.EName, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.EName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.EFamily, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.EFamily, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EFamily, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Family, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Family, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Family, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NatinalCode, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.NatinalCode, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NatinalCode, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Level, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <select name="Level" class="form-control">
+                                    <option value="کاردان">کاردان</option>
+                                    <option value="کارشناس">کارشناس</option>
+                                    <option value="کارشناس ارشد">کارشناس ارشد</option>
+                                    <option value="دکتری">دکتری</option>
+                                    <option value="دانشجو">دانشجو</option>
+                                </select>
+
+                                @Html.ValidationMessageFor(model => model.Level, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Degree, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Degree, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Degree, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Adderess, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(model => model.Adderess, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Adderess, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <div class="form-group">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <img class="captcha-image" src="@Url.Action("CaptchaImage", "Home", routeValues: new { rdnDate = DateTime.Now.Ticks })" />
+                                (<button type="button" class="refresh-captcha">تازه سازی</button>)
+                                <br />
+                                @Html.TextBoxFor(model => model.CaptchaInputText, new { @class = "ltr form-control text-box single-line", autocomplete = "off", placeholder = "عددی که در عکس می بینید وارد کنید." })
+                                <br />
+                                فقط عدد وارد کنید.
+                                <br />
+                                @Html.ValidationMessageFor(model => model.CaptchaInputText)
+                                <br />
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="ثبت نام" class="btn btn-success" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+            <script>
+
+        jQuery(function ($) {
+            $("#NatinalCode").mask("9999999999");
+            $("#Mobile").mask("99999999999");
+            $("#Telephone").mask("99999999999");
+            $("#AltTelephone").mask("99999999999");
+
+            $("#JobTelephone").mask("99999999999");
+
+
+
+        });
+        $(function () {
+            $('.refresh-captcha').click(function () {
+                //alert();
+                $.ajax({
+                    url: '@Url.Action("CaptchaImage","Home")',
+                    type: "GET",
+                    data: null
+                })
+                .done(function (functionResult) {
+                    $(".captcha-image").attr("src", "/Home/CaptchaImage?" + functionResult);
+                });
+            });
+        });
+            </script>
+        }
     </div>
-
     <div class="col-sm-12">
         @*@using (Html.BeginForm("Index", "Register", FormMethod.Post))
             {

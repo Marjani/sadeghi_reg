@@ -13,17 +13,16 @@ namespace Tamin.Registration.DataLayer.Entities
         [Key]
         public int Id { get; set; }
 
-
         [MaxLength(25, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
-        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
+//        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
         public string Username { get; set; }
 
         [MaxLength(20, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
-        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
+//        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
         public string Password { get; set; }
         [MaxLength(50, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
         [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage ="پست الکترونیک صحبح وارد کنید!")]
         public string Email { get; set; }
 
         [MaxLength(50, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
@@ -33,15 +32,15 @@ namespace Tamin.Registration.DataLayer.Entities
         [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
         public string EFamily { get; set; }
         [MaxLength(50, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
-        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
+//        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
         public string NatinalCardPhoto { get; set; }
-        [MaxLength(50, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
 
+        [MaxLength(50, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
         public string Job { get; set; }
         public string JobTelephone { get; set; }
 
         [MaxLength(50, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
-        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
+//        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
         public string PostCode { get; set; }
         public string Peygiri { get; set; }
         public string PeygiriPhotoFilename { get; set; }
@@ -59,17 +58,18 @@ namespace Tamin.Registration.DataLayer.Entities
         public string FatherName { get; set; }
 
         [MaxLength(12, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
+        [Index(IsUnique = true)]
+        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
         public string NatinalCode { get; set; }
 
         [MaxLength(10, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
-
         public string ShenasnameCode { get; set; }
 
 
         public DateTime Birthday { get; set; }
 
         [MaxLength(20, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
-        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
+//        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
         public string City { get; set; }
 
         [MaxLength(1000, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
@@ -85,19 +85,19 @@ namespace Tamin.Registration.DataLayer.Entities
         public string Telephone { get; set; }
 
         [MaxLength(15, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
-        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
+  //      [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
         public string AltTelephone { get; set; }
 
 
         [MaxLength(500, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
-        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
+//        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
         public string PhotoFilename { get; set; }
 
         [MaxLength(10, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
         [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
         public string Degree { get; set; }
 
-        [MaxLength(20, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
+        [MaxLength(50, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
         [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
 
         public string Level { get; set; }
@@ -120,16 +120,16 @@ namespace Tamin.Registration.DataLayer.Entities
         public string TransactionReferenceID { get; set; }
         public string TransactionDate { get; set; }
         public string LastDegrePhotoFilename { get; set; }
-        [MaxLength(20, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
-        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
+        [MaxLength(50, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
+//        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
         public string University { get; set; }
 
-        [MaxLength(20, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
+        [MaxLength(50, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
+ //       [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
         public string Major { get; set; }
 
         [MaxLength(20, ErrorMessage = "حداکثر {0} حرف وارد کنید!")]
-        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
-
+//        [Required(ErrorMessage = "وارد کردن مقدار {0} الزامی است!")]
         public string Country { get; set; }
 
         public int EventId { get; set; }
